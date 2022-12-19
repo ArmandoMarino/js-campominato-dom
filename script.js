@@ -47,6 +47,9 @@ const cols = 10;
 const totalCells = rows * cols; //100
 console.log(totalCells + " " + "CELLE TOTALI");
 
+
+
+
 // FUNZIONI-----------------
 
 //? FUNZIONE PER CREARE LA CELLA con NUMERI
@@ -60,9 +63,22 @@ function createCell(content){
 
 // ?------------------------------
 
-
+// EVENT LISTENER SUL BUTTONE PLAY-------------
 playButton.addEventListener("click", function(){
 headerPlay.classList.add("d-none");
+
+// CPU RANDOM NUMBERS = BOMB
+const randoms = []
+const generateRandomNumbers = (min, max, times) => {
+    for (let i = 0; i < times; i++) {
+        randoms.push(Math.floor(Math.random() * (max - min) + min))
+    }
+
+    return randoms
+}
+
+generateRandomNumbers(1,100,16);
+    console.log(randoms + "randoms");
 
 // RENDER CELLS WITH FOR
 for (let i = 1; i <= totalCells; i++ ){
@@ -74,8 +90,17 @@ for (let i = 1; i <= totalCells; i++ ){
  cell.addEventListener("click", function(){
     cell.classList.add("clicked");
     console.log(i);
+    if (randoms.includes(i)){
+        alert("Hai calpestato una bomba!")
+        return
+    }
  });
+
+ 
+
 }
+
+
 
 });
 
