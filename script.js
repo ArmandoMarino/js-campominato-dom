@@ -37,15 +37,14 @@ console.log(grid);
 // BUTTON PLAY
 const playButton = document.getElementById("play-button");
 console.log(playButton);
+// LEVEL BUTTON
+level = document.getElementById("level");
 // HEADER PLAY MATCH
 const headerPlay = document.getElementById("play-match");
 console.log(headerPlay);
 
 // UTILS
-const rows = 10;
-const cols = 10;
-const totalCells = rows * cols; //100
-console.log(totalCells + " " + "CELLE TOTALI");
+
 
 
 
@@ -53,10 +52,10 @@ console.log(totalCells + " " + "CELLE TOTALI");
 // FUNZIONI-----------------
 
 //? FUNZIONE PER CREARE LA CELLA con NUMERI
-function createCell(content){
+function createCell(content, className){
     const cell = document.createElement('div');
     cell.append(content);
-    cell.classList.add ('cell');
+    cell.classList.add ('cell', className);
     cell.classList.add ('active');
     cell.setAttribute("data-index", content);
     return cell;
@@ -67,8 +66,28 @@ function createCell(content){
 // EVENT LISTENER SUL BUTTONE PLAY-------------
 playButton.addEventListener("click", function(){
 
+let rows ;
+let cols ;
+    
+let levelValue = level.value;
+console.log(levelValue);
+    
 headerPlay.classList.add("d-none");
 
+switch (levelValue){
+    case 'medium':
+        cols = rows = 9;
+        break;
+    case 'hard':
+        cols = rows = 7;
+        break;
+    case 'easy':
+        default:
+        cols = rows = 10;
+}
+
+const totalCells = rows * cols;
+    console.log(totalCells + " " + "CELLE TOTALI");
 // CPU RANDOM NUMBERS = BOMB
 const randoms = []
 const generateRandomNumbers = (min, max, times) => {
@@ -84,7 +103,7 @@ generateRandomNumbers(1,100,16);
 
 // RENDER CELLS WITH FOR
 for (let i = 1; i <= totalCells; i++ ){
- const cell = createCell(i);
+ const cell = createCell(i, levelValue);
 
  grid.appendChild(cell);
 

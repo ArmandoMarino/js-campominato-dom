@@ -38,15 +38,27 @@ main{
 
 #grid .cell{
     border: 2px solid black;
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+    
     background-color: white;
     display: none;
     text-align: center;
     cursor: pointer;
 }
 
+#grid .cell.easy{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
 
+#grid .cell.medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+#grid .cell.hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
 
 #grid .cell.active{
     display: flex;
