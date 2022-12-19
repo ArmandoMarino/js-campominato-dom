@@ -58,6 +58,7 @@ function createCell(content){
     cell.append(content);
     cell.classList.add ('cell');
     cell.classList.add ('active');
+    cell.setAttribute("data-index", content);
     return cell;
 }
 
@@ -87,27 +88,36 @@ for (let i = 1; i <= totalCells; i++ ){
 
  grid.appendChild(cell);
 
+ var clicks = 0;
 
+ function onClick() {
+   clicks += 1;
+ };
 
 //  EVENT LISTENER CLICK ON CELL
  cell.addEventListener("click", function(){
     cell.classList.add("clicked");
     console.log(i);
 
+    onClick(cell);
+
     let message = "";
 
     if (randoms.includes(i)){
         cell.classList.add("bomb");
-        message = alert("Hai calpestato una bomba!");
+        message = alert("Hai calpestato una bomba!" + " " + "Il tuo punteggio è:" + clicks );
+
         const nodeList = document.querySelectorAll(".active");
+
         for (let i = 0; i < nodeList.length; i++) {
             nodeList[i].classList.add("disabled");
           }
-        } else if (i === 84 ){
-            message = alert("Hai vinto!");
+        }if (i === 84 ){
+            message = alert("Hai vinto!"+ " " + "Il tuo punteggio è :" + clicks);
+            console.log(clicks + "clicks");
         }
-
-
+    
+        
  });
 
 
