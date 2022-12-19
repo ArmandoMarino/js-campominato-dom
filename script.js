@@ -94,9 +94,13 @@ for (let i = 1; i <= totalCells; i++ ){
     cell.classList.add("clicked");
     console.log(i);
     
+    let cellClicked = document.querySelectorAll(".active");
+
     if (randoms.includes(i)){
         alert("Hai calpestato una bomba!");
-        }
+        cellClicked.classList.add("disabled");
+        
+    }
  });
 
  
