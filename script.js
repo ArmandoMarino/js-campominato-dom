@@ -93,12 +93,12 @@ for (let i = 1; i <= totalCells; i++ ){
  cell.addEventListener("click", function(){
     cell.classList.add("clicked");
     console.log(i);
-    
+
     let cellClicked = document.querySelectorAll(".active");
 
     if (randoms.includes(i)){
         alert("Hai calpestato una bomba!");
-        cellClicked.classList.add("disabled");
+        cell.forEach(cell.classList.add("disabled"));
         
     }
  });
