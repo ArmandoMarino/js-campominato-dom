@@ -94,13 +94,17 @@ for (let i = 1; i <= totalCells; i++ ){
     cell.classList.add("clicked");
     console.log(i);
 
-    let cellClicked = document.querySelectorAll(".active");
+    let message = "";
 
     if (randoms.includes(i)){
-        alert("Hai calpestato una bomba!");
-        cell.forEach(cell.classList.add("disabled"));
+        message = alert("Hai calpestato una bomba!");
+        const nodeList = document.querySelectorAll(".active");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].classList.add("disabled");
+          }
+        }
         
-    }
+    
  });
 
  
