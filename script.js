@@ -65,6 +65,7 @@ function createCell(content){
 
 // EVENT LISTENER SUL BUTTONE PLAY-------------
 playButton.addEventListener("click", function(){
+
 headerPlay.classList.add("d-none");
 
 // CPU RANDOM NUMBERS = BOMB
@@ -86,14 +87,16 @@ for (let i = 1; i <= totalCells; i++ ){
  
  grid.appendChild(cell);
 
+ 
+
 //  EVENT LISTENER CLICK ON CELL
  cell.addEventListener("click", function(){
     cell.classList.add("clicked");
     console.log(i);
+    
     if (randoms.includes(i)){
-        alert("Hai calpestato una bomba!")
-        return
-    }
+        alert("Hai calpestato una bomba!");
+        }
  });
 
  
@@ -103,7 +106,3 @@ for (let i = 1; i <= totalCells; i++ ){
 
 
 });
-
-
-
-
