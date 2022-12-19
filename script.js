@@ -84,10 +84,10 @@ generateRandomNumbers(1,100,16);
 // RENDER CELLS WITH FOR
 for (let i = 1; i <= totalCells; i++ ){
  const cell = createCell(i);
- 
+
  grid.appendChild(cell);
 
- 
+
 
 //  EVENT LISTENER CLICK ON CELL
  cell.addEventListener("click", function(){
@@ -97,17 +97,20 @@ for (let i = 1; i <= totalCells; i++ ){
     let message = "";
 
     if (randoms.includes(i)){
+        cell.classList.add("bomb");
         message = alert("Hai calpestato una bomba!");
         const nodeList = document.querySelectorAll(".active");
         for (let i = 0; i < nodeList.length; i++) {
             nodeList[i].classList.add("disabled");
           }
+        } else if (i === 84 ){
+            message = alert("Hai vinto!");
         }
-        
-    
+
+
  });
 
- 
+
 
 }
 
